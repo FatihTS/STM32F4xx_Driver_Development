@@ -1,1 +1,2 @@
-GPIO.c:5:6:GPIO_WritePin	0	static
+GPIO.c:17:6:GPIO_WritePin	0	static
+GPIO.c:42:17:GPIO_ReadPin	0	static
