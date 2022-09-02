@@ -1,5 +1,18 @@
 #include "GPIO.h"
 
+/**
+ *
+ *
+ * @brief GPIO_Init, Configures the port and pin
+ *
+ * @param GPIOx = GPIO Port Base Address
+ *
+ * @param GPIO_InitTypeDef_t = User Config structures
+ *
+ *
+ * @retval Void
+ */
+
 void GPIO_Init(GPIO_TypeDef_t* GPIOx,GPIO_InitTypeDef_t* GPIO_ConfigStruct){
 
 	uint32_t position;
@@ -14,12 +27,38 @@ void GPIO_Init(GPIO_TypeDef_t* GPIOx,GPIO_InitTypeDef_t* GPIO_ConfigStruct){
 
 		if(fakePosition == lastPosition){
 
+			/* MODE CONFIG */
 			uint32_t tempValue = GPIOx->MODER;
 			tempValue &= ~(0x3U << (position * 2));
-
-			tempValue |= (GPIO_ConfigStruct->Mode << (position * 2));
+			tempValue |= ((GPIO_ConfigStruct->Mode) << (position * 2));
 
 			GPIOx->MODER = tempValue;
+
+			if(GPIO_ConfigStruct->Mode == GPIO_MODE_OUTPUT || GPIO_ConfigStruct->Mode == GPIO_MODE_ANALOG){
+
+
+			/* OUPUT Type CONFIG */
+			uint32_t tempValue = GPIOx->OTYPER;
+			tempValue &= ~(0x1U << position);
+			tempValue |= ((GPIO_ConfigStruct->Otype) << position);
+			GPIOx->OTYPER = tempValue;
+
+
+			/* OUTPUT SPEED CONFIG */
+			uint32_t tempValue = GPIOx->OSPEEDR;
+			tempValue &= ~(0x3U << (position * 2));
+			tempValue |= ((GPIO_ConfigStruct->Speed) << (position * 2 ));
+			GPIOx->OSPEEDR = tempValue;
+
+			}
+
+
+		/* Push Pull CONFIG */
+			uint32_t tempValue = GPIOx->PUPDR;
+			tempValue &= ~(0x3U << (position * 2 ));
+			tempValue |= ((GPIO_ConfigStruct->Pupd) << (position * 2));
+			GPIOx->PUPDR = tempValue;
+
 
 
 		}
