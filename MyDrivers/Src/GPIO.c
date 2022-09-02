@@ -1,5 +1,33 @@
 #include "GPIO.h"
 
+void GPIO_Init(GPIO_TypeDef_t* GPIOx,GPIO_InitTypeDef_t* GPIO_ConfigStruct){
+
+	uint32_t position;
+	uint32_t fakePosition = 0;
+	uint32_t lastPosition = 0;
+
+	for(position = 0;position <16;position++){
+
+
+		fakePosition = (0x1U << position);
+		lastPosition = (uint32_t)(GPIO_ConfigStruct->pinNumber) & fakePosition;
+
+		if(fakePosition == lastPosition){
+
+			uint32_t tempValue = GPIOx->MODER;
+			tempValue &= ~(0x3U << (position * 2));
+
+			tempValue |= (GPIO_ConfigStruct->Mode << (position * 2));
+
+			GPIOx->MODER = tempValue;
+
+
+		}
+
+	}
+}
+
+
 /**
  *
  *
@@ -74,7 +102,6 @@ void GPIO_LockPin(GPIO_TypeDef_t *GPIOx, uint16_t pinNumber){
 	GPIOx->LCKR = pinNumber;							   // 	LCKR[16] = ‘0’ 			LCKR[DATA]
 	GPIOx->LCKR = tempValue;							   // 	LCKR[16] = ‘1’ 			LCKR[DATA]
 	tempValue = GPIOx->LCKR;                               //   Read Lock register
-
 
 }
 

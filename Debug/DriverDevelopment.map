@@ -37,16 +37,20 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./MyDrivers/Src/GPIO.o
  .data          0x0000000000000000        0x0 ./MyDrivers/Src/GPIO.o
  .bss           0x0000000000000000        0x0 ./MyDrivers/Src/GPIO.o
+ .text.GPIO_Init
+                0x0000000000000000       0x34 ./MyDrivers/Src/GPIO.o
  .text.GPIO_WritePin
                 0x0000000000000000        0xa ./MyDrivers/Src/GPIO.o
  .text.GPIO_ReadPin
                 0x0000000000000000        0xc ./MyDrivers/Src/GPIO.o
- .debug_info    0x0000000000000000      0x206 ./MyDrivers/Src/GPIO.o
- .debug_abbrev  0x0000000000000000      0x11c ./MyDrivers/Src/GPIO.o
- .debug_loc     0x0000000000000000       0x74 ./MyDrivers/Src/GPIO.o
+ .text.GPIO_LockPin
+                0x0000000000000000        0xe ./MyDrivers/Src/GPIO.o
+ .debug_info    0x0000000000000000      0x344 ./MyDrivers/Src/GPIO.o
+ .debug_abbrev  0x0000000000000000      0x125 ./MyDrivers/Src/GPIO.o
+ .debug_loc     0x0000000000000000       0xfa ./MyDrivers/Src/GPIO.o
  .debug_aranges
-                0x0000000000000000       0x28 ./MyDrivers/Src/GPIO.o
- .debug_ranges  0x0000000000000000       0x18 ./MyDrivers/Src/GPIO.o
+                0x0000000000000000       0x38 ./MyDrivers/Src/GPIO.o
+ .debug_ranges  0x0000000000000000       0x40 ./MyDrivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x95 ./MyDrivers/Src/GPIO.o
  .debug_macro   0x0000000000000000      0xaa8 ./MyDrivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x22 ./MyDrivers/Src/GPIO.o
@@ -57,11 +61,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x1df ./MyDrivers/Src/GPIO.o
  .debug_macro   0x0000000000000000      0x1ba ./MyDrivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x34 ./MyDrivers/Src/GPIO.o
- .debug_macro   0x0000000000000000       0x6a ./MyDrivers/Src/GPIO.o
- .debug_line    0x0000000000000000      0x41b ./MyDrivers/Src/GPIO.o
- .debug_str     0x0000000000000000     0x4ef3 ./MyDrivers/Src/GPIO.o
+ .debug_macro   0x0000000000000000       0xb8 ./MyDrivers/Src/GPIO.o
+ .debug_line    0x0000000000000000      0x4de ./MyDrivers/Src/GPIO.o
+ .debug_str     0x0000000000000000     0x50ac ./MyDrivers/Src/GPIO.o
  .comment       0x0000000000000000       0x54 ./MyDrivers/Src/GPIO.o
- .debug_frame   0x0000000000000000       0x30 ./MyDrivers/Src/GPIO.o
+ .debug_frame   0x0000000000000000       0x64 ./MyDrivers/Src/GPIO.o
  .ARM.attributes
                 0x0000000000000000       0x2e ./MyDrivers/Src/GPIO.o
  .group         0x0000000000000000        0xc ./MyDrivers/Src/RCC.o
