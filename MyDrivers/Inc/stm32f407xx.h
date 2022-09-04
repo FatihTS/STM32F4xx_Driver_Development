@@ -216,5 +216,6 @@ typedef struct{
 
 
 #include "RCC.h"
+#include "GPIO.h"
 
 #endif /* INC_STM32F407XX_H_ */
