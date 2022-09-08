@@ -10,7 +10,7 @@ int main(void)
 {
 	GPIO_LedConfig();
 
-	GPIO_WritePin(GPIOD,GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15 , GPIO_PIN_SET);
+
 
 for(;;);
 
